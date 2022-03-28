@@ -1,0 +1,41 @@
+<div class="card-fan-new">
+    <mat-card>
+        <form [formGroup]="form" action="">
+            <label for="">Name : </label>
+            <input type="text" name="name" id="name" formControlName="name" required >
+             <br>
+                <small *ngIf="isRequired('name')" [ngStyle]="{'color': 'red'}">
+                Name is required.
+                </small>
+            <br>
+            <label for="">Image : </label>
+            <input type="text" name="image" id="image" formControlName="image" required >
+             <br>
+                <small *ngIf="isRequired('image')" [ngStyle]="{'color': 'red'}">
+                Image is required.
+                </small>
+            <br>
+            <label for="">Birthday : </label>
+            <input type="date" formControlName="birthday" max="{{maxDate}}" required>
+            <br>
+                <small *ngIf="isRequired('birthday')" [ngStyle]="{'color': 'red'}">
+                Birthday is required.
+                </small>
+            <br>
+            <label for=""> Musics : </label>
+            <div formArrayName="musics">
+                <div *ngFor="let music of getControls(); let i = index;" [formGroupName]="i" >
+                    <input type="text" name="" id="" formControlName="title"> 
+                    <span (click)="addInputMusic()" class="material-icons">add_circle_outline</span>
+                    <span *ngIf="i > 0" (click)="deleteInputMusic(i)" class="material-icons">clear</span>
+                </div>
+            </div>
+            
+            
+        </form>
+        
+        <mat-card-actions>
+          <button mat-raised-button color="primary" (click)="onSave()" [disabled]="!form.valid">SAVE</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

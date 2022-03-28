@@ -1,0 +1,30 @@
+<div class="card-fan">
+    <mat-card *ngFor="let fan of fans">
+      <mat-card-header>
+        <div mat-card-avatar class="header-image"  [ngStyle]="{ 'background-image': 'url(' + fan.image + ')'}" ></div>
+        <mat-card-title> {{fan.name}} </mat-card-title>
+        <mat-card-subtitle> {{fan.birthday | date:'d/M/yy'}} </mat-card-subtitle>
+      </mat-card-header>
+
+        <mat-card-content> 
+            <label>List of musics : </label>
+            <ol>
+                <li *ngFor="let music of fan.musics">
+                    {{music}}
+                </li>
+            </ol> 
+        </mat-card-content>
+        <mat-card-actions>          
+          <button mat-raised-button routerLink="{{fan.id}}">
+            <mat-icon>info</mat-icon>
+          </button>
+          <button mat-raised-button routerLink="update/{{fan.id}}" color="primary">
+            <mat-icon>edit</mat-icon>
+          </button>          
+          <button mat-raised-button color="warn" (click)="deleteFan(fan)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-card-actions>
+    </mat-card>
+</div>
+    

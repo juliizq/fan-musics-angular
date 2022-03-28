@@ -1,0 +1,33 @@
+mat-card{
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-fan{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.mat-card-actions{
+    margin-top: auto;
+}
+
+.mat-card-actions .mat-button, .mat-card-actions .mat-raised-button, .mat-card-actions .mat-stroked-button {
+    margin: 0 0 0 4px;
+}
+
+.material-icons {
+    font-size: 20px;
+}
+
+.header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+
+.mat-raised-button{
+    width: 20px;
+}
+
